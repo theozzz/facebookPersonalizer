@@ -1,4 +1,4 @@
-# facebookPersonnalizer
+# FacebookPersonnalizer
 Chrome module to personnalize facebook, it will allow you to customize your facebook without touching your config
 
 
@@ -13,3 +13,6 @@ Chrome module to personnalize facebook, it will allow you to customize your face
 - Multiple color choice
 - New elements to customize
 - Correct sprite color
+
+
+# By theozzz 2015
