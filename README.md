@@ -6,6 +6,7 @@ Chrome module to personnalize facebook, it will allow you to customize your face
 
 ![alt tag](https://github.com/theozzz/facebookPersonalizer/blob/master/images/facebookPersonalizerPreview.png)
 ![alt tag](https://github.com/theozzz/facebookPersonalizer/blob/master/images/FacebookPersonalizerPreview.png)
+![alt tag](https://github.com/theozzz/facebookPersonalizer/blob/master/images/Preview2.png)
 
 # TO DO
 
@@ -14,5 +15,6 @@ Chrome module to personnalize facebook, it will allow you to customize your face
 - New elements to customize
 - Correct sprite color
 
+- PERSISTANCE DES INFOS
 
 # By theozzz 2015
