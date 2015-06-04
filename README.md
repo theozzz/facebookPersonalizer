@@ -5,7 +5,7 @@ Chrome module to personnalize facebook, it will allow you to customize your face
 # Preview
 
 ![alt tag](https://github.com/theozzz/facebookPersonalizer/blob/master/images/facebookPersonalizerPreview.png)
-
+![alt tag](https://github.com/theozzz/facebookPersonalizer/blob/master/images/FacebookPersonalizerPreview.png)
 
 # TO DO
 
