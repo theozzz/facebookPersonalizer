@@ -42,6 +42,22 @@ function activateThemeClick(e){
     });
 }
 
+function activateIconsClick(e){
+    var className = e.target.className;
+    sendMsgToCS({
+        action : 'CHANGE_ICONS',
+        colorCode: className
+    });
+}
+
+function activateNavClick(e){
+    var className = e.target.className;
+    sendMsgToCS({
+        action : 'CHANGE_NAVBAR',
+        colorCode: className
+    });
+}
+
 function closeFn() {
   window.close();
 }
@@ -49,10 +65,27 @@ function click(e) {
   var divName = e.target.id;
   var elems = document.getElementById(divName + '_select');
   elems.style.display = "block";
-  for (var i = 0; i < elems.childNodes.length; i++) {
-      elems.childNodes[i].onclick = activateThemeClick;
+  if (divName == 'change_themes') {
+      for (var i = 0; i < elems.childNodes.length; i++) {
+          elems.childNodes[i].onclick = activateThemeClick;
+
+      }
+  }
+  if (divName == 'change_icons') {
+      for (var i = 0; i < elems.childNodes.length; i++) {
+          elems.childNodes[i].onclick = activateIconsClick;
+
+      }
+  }
+
+  if (divName == 'change_navbar') {
+      for (var i = 0; i < elems.childNodes.length; i++) {
+          elems.childNodes[i].onclick = activateNavClick;
+
+      }
 
   }
+
   
  /* sendMsgToCS({
     action : 'COLOR_PAGE',

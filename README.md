@@ -1,3 +1,7 @@
+red_sprite : http://img11.hostingpics.net/pics/687192redoriginsprite.png
+green_sprite : http://img11.hostingpics.net/pics/786227greenoriginsprite.png
+purple_sprite : http://img11.hostingpics.net/pics/951911purpleoriginsprite.png
+gray_sprite : http://img11.hostingpics.net/pics/829430graysprite.png
 # FacebookPersonnalizer
 Chrome module to personnalize facebook, it will allow you to customize your facebook without touching your config
 
