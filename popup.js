@@ -34,14 +34,31 @@ function sendMsgToCS(message) {
     });
 }
 
+function activateThemeClick(e){
+    var className = e.target.className;
+    sendMsgToCS({
+        action : 'CHANGE_THEME',
+        colorCode: className
+    });
+}
+
+function closeFn() {
+  window.close();
+}
 function click(e) {
-  var colorCode = e.target.id;
+  var divName = e.target.id;
+  var elems = document.getElementById(divName + '_select');
+  elems.style.display = "block";
+  for (var i = 0; i < elems.childNodes.length; i++) {
+      elems.childNodes[i].onclick = activateThemeClick;
+
+  }
   
-  sendMsgToCS({
+ /* sendMsgToCS({
     action : 'COLOR_PAGE',
     colorCode: 'red'
-  });
-  window.close();
+  });*/
+  //window.close();
 }
 //Tracks user icon click and registers popup window event listeners
 function run() {
@@ -50,9 +67,11 @@ function run() {
   document.addEventListener('DOMContentLoaded', function() {
     console.log("ici");
     try{
+      var closeButton = document.getElementById('close_btn');
+      closeButton.onclick = closeFn;
       var divs = document.querySelectorAll('div');
       for (var i = 0;i < divs.length; i++) {
-	divs[i].onclick = click;			   
+          divs[i].onclick = click;
       }
       //do some dummy operation
       console.log('test 0.1');

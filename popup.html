@@ -4,6 +4,13 @@
     <meta charset="UTF-8">
     <title>Facebook Personalizer</title>
     <style>
+      #close_btn {
+          cursor: pointer;
+          margin-left: 69px;
+          display: block;
+          background-image: url('images/18.png');
+      }
+    
       #change_themes {
 	background : red;
       }
@@ -19,18 +26,53 @@
       #change_icons {
 	background : green;
       }
+      
+      #change_themes, #change_navbar, #change_bgcol, #change_icons {
+          padding-right: 10px;
+          padding-left:10px;
+          cursor:pointer;
+          border-bottom: 2px solid black;
+      }
+      
+      .green, .red {
+        text-decoration: underline; 
+        display: block;
+        margin-bottom:5px;
+	    padding-left : 10px;
+      }
+      
     </style>
-    <script>
-      $('#change_theme').on('click', function(){
-	alert('you');
-      });
-    </script>
     <script src="popup.js"></script>
   </head>
   <body>
-    <div id="change_themes">Change themes</div>
-    <div id="change_navbar">Change navigation bar</div>
-    <div id="change_bgcol">Change background-color</div>
-    <div id="change_icons">Change icons</div>
+    <span style="height: 18px; width: 18px" id="close_btn"></span>
+    <div id="change_themes">
+      Change themes
+      <div id="change_themes_select" style="display: none">
+        <span class="green">Green book</span>
+        <span class="red">Red book</span>
+      </div>
+    </div>
+    <div id="change_navbar">
+      Change navigation bar
+      <div id="change_navbar_select" style="display: none">
+        <span class="green">Green book</span>
+        <span class="red">Red book</span>
+      </div>
+    </div>
+    <div id="change_bgcol">
+      Change background-color
+      <div id="change_bgcol_select" style="display: none">
+        <span class="green">Green book</span>
+        <span class="red">Red book</span>
+      </div>
+    </div>
+    <div id="change_icons">
+      Change icons
+      <div id="change_icons_select" style="display: none">
+        <span class="green">Green book</span>
+        <span class="red">Red book</span>
+      </div>
+    </div>
   </body>
 </html>
