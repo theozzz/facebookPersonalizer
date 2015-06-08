@@ -6,8 +6,8 @@ Chrome module to personnalize facebook, it will allow you to customize your face
 
 ![alt tag](https://github.com/theozzz/facebookPersonalizer/blob/master/images/finalGoldTheme.png)
 ![alt tag](https://github.com/theozzz/facebookPersonalizer/blob/master/images/finalGreenTheme.png)
-![alt tag](https://github.com/theozzz/facebookPersonalizer/blob/master/images/finalPurpleTheme.jpg)
-![alt tag](https://github.com/theozzz/facebookPersonalizer/blob/master/images/finalRedTheme.jpg)
+![alt tag](https://github.com/theozzz/facebookPersonalizer/blob/master/images/finalPurpleTheme.png)
+![alt tag](https://github.com/theozzz/facebookPersonalizer/blob/master/images/finalRedTheme.png)
 
 # TO DO
 
