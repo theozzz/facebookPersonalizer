@@ -11,7 +11,7 @@
       "matches": [
 	"https://www.facebook.com/*"
       ],
-      "js": ["jquery-2.1.4.min.js", "content.js"]
+      "js": ["jquery-2.1.4.min.js", "jscolor.js", "content.js"]
     }
   ],
   "background": {

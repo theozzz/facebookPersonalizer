@@ -26,6 +26,11 @@
       #change_icons {
 	background : green;
       }
+
+      .color{
+          margin-top:10px;
+          margin-bottom:10px;
+      }
       
       #change_themes, #change_navbar, #change_bgcol, #change_icons {
           padding-right: 10px;
@@ -34,7 +39,7 @@
           border-bottom: 2px solid black;
       }
       
-      .green, .red , .purple , .darkGray{
+      .green, .red , .purple , .darkGray, .gold{
         text-decoration: underline; 
         display: block;
         margin-bottom:5px;
@@ -42,39 +47,44 @@
       }
       
     </style>
+      <script type="text/javascript" src="jscolor.js"></script>
     <script src="popup.js"></script>
   </head>
   <body>
-    <span style="height: 18px; width: 18px" id="close_btn"></span>
-    <div id="change_themes">
-      Change themes
-      <div id="change_themes_select" style="display: none">
-        <span class="green">Green book</span>
-        <span class="red">Red book</span>
+      <div id="popup">
+        <span style="height: 18px; width: 18px" id="close_btn"></span>
+        <div id="change_themes">
+          Change themes
+          <div id="change_themes_select" style="display: none">
+            <span class="green">Green book</span>
+            <span class="red">Red book</span>
+            <span class="purple">Purple book</span>
+            <span class="gold">Goldie book</span>
+          </div>
+        </div>
+        <div id="change_navbar">
+          Change navigation bar
+          <div id="change_navbar_select" style="display: none">
+            <input id="navBarPicker" class="color" value="66ff00"/>
+              <span class="niceButton" >ok</span>
+          </div>
+        </div>
+        <div id="change_bgcol">
+          Change background-color
+          <div id="change_bgcol_select" style="display: none">
+              <input id="bgPicker" class="color" value="66ff00"/>
+              <span class="niceButton" >ok</span>
+          </div>
+        </div>
+        <div id="change_icons">
+          Change icons
+          <div id="change_icons_select" style="display: none">
+            <span class="green">Green forest Icons</span>
+            <span class="red">Red blood Icons</span>
+            <span class="purple">Purple life Icons</span>
+            <span class="gold">Gold life Icons</span>
+          </div>
+        </div>
       </div>
-    </div>
-    <div id="change_navbar">
-      Change navigation bar
-      <div id="change_navbar_select" style="display: none">
-        <span class="green">Green book</span>
-        <span class="red">Red book</span>
-      </div>
-    </div>
-    <div id="change_bgcol">
-      Change background-color
-      <div id="change_bgcol_select" style="display: none">
-        <span class="green">Green book</span>
-        <span class="red">Red book</span>
-      </div>
-    </div>
-    <div id="change_icons">
-      Change icons
-      <div id="change_icons_select" style="display: none">
-        <span class="green">Green forest Icons</span>
-        <span class="red">Red blood Icons</span>
-        <span class="purple">Purple life Icons</span>
-        <span class="darkGray">Dark Gray life Icons</span>
-      </div>
-    </div>
   </body>
 </html>

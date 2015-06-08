@@ -51,63 +51,88 @@ function activateIconsClick(e){
 }
 
 function activateNavClick(e){
-    var className = e.target.className;
+    var elem = document.getElementById('navBarPicker');
+    var colorCode = elem.color.toString();
     sendMsgToCS({
         action : 'CHANGE_NAVBAR',
-        colorCode: className
+        colorCode: colorCode
     });
 }
 
 function closeFn() {
   window.close();
 }
-function click(e) {
-  var divName = e.target.id;
-  var elems = document.getElementById(divName + '_select');
-  elems.style.display = "block";
-  if (divName == 'change_themes') {
-      for (var i = 0; i < elems.childNodes.length; i++) {
-          elems.childNodes[i].onclick = activateThemeClick;
 
-      }
-  }
-  if (divName == 'change_icons') {
-      for (var i = 0; i < elems.childNodes.length; i++) {
-          elems.childNodes[i].onclick = activateIconsClick;
-
-      }
-  }
-
-  if (divName == 'change_navbar') {
-      for (var i = 0; i < elems.childNodes.length; i++) {
-          elems.childNodes[i].onclick = activateNavClick;
-
-      }
-
-  }
-
-  
- /* sendMsgToCS({
-    action : 'COLOR_PAGE',
-    colorCode: 'red'
-  });*/
-  //window.close();
+function activateBgClick(e){
+    var elem = document.getElementById('bgPicker');
+    var colorCode = elem.color.toString();
+    sendMsgToCS({
+        action : 'CHANGE_BGCOL',
+        colorCode: colorCode
+    });
 }
+
+function click(e) {
+    if( e.target !== this )
+        return;
+
+    var divName = e.target.id;
+    var elems = document.getElementById(divName + '_select');
+    if (elems.style.display !== 'none') {
+        elems.style.display = 'none';
+    }
+    else {
+        elems.style.display = 'block';
+    }
+    if (divName == 'change_themes') {
+        for (var i = 0; i < elems.childNodes.length; i++) {
+            elems.childNodes[i].onclick = activateThemeClick;
+
+        }
+    }
+    if (divName == 'change_icons') {
+        for (var i = 0; i < elems.childNodes.length; i++) {
+            elems.childNodes[i].onclick = activateIconsClick;
+
+        }
+    }
+
+    if (divName == 'change_navbar') {
+        for (var i = 0; i < elems.childNodes.length; i++) {
+            elems.childNodes[i].onclick = activateNavClick;
+
+        }
+    }
+
+    if (divName == 'change_bgcol') {
+
+       // document.getElementById('popup').style.height = '300px';
+        for (var i = 0; i < elems.childNodes.length; i++) {
+            if (elems.childNodes[i].tagName == 'SPAN') {
+                elems.childNodes[i].onclick = activateBgClick;
+            }
+        }
+    }
+
+}
+
 //Tracks user icon click and registers popup window event listeners
 function run() {
   
   trackEvent("iccl", "func");
   document.addEventListener('DOMContentLoaded', function() {
-    console.log("ici");
     try{
+
+        document.getElementById('popup').style.width = '300px';
+        document.getElementById('bgPicker').addEventListener('onclick',function(){
+            alert('ok');
+        });
       var closeButton = document.getElementById('close_btn');
       closeButton.onclick = closeFn;
       var divs = document.querySelectorAll('div');
       for (var i = 0;i < divs.length; i++) {
           divs[i].onclick = click;
       }
-      //do some dummy operation
-      console.log('test 0.1');
     } catch (e35) {
       trackError(e35, 35);
       
@@ -119,7 +144,8 @@ function run() {
 }
 
 try {
-  run();
+
+    run();
 } catch (e40) {
   trackError(e40, 40);
 }
