@@ -4,28 +4,17 @@
     <meta charset="UTF-8">
     <title>Facebook Personalizer</title>
     <style>
+
+      #popup {
+          border:2px solid black;
+      }
       #close_btn {
           cursor: pointer;
-          margin-left: 69px;
+          float:right;
           display: block;
           background-image: url('images/18.png');
       }
-    
-      #change_themes {
-	background : red;
-      }
-      
-      #change_navbar {
-	background : yellow;
-      }
-      
-      #change_bgcol {
-	background : purple;
-      }
-      
-      #change_icons {
-	background : green;
-      }
+
 
       .color{
           margin-top:10px;
@@ -33,51 +22,88 @@
       }
       
       #change_themes, #change_navbar, #change_bgcol, #change_icons {
-          padding-right: 10px;
-          padding-left:10px;
+          padding:10px;
           cursor:pointer;
-          border-bottom: 2px solid black;
       }
       
       .green, .red , .purple , .darkGray, .gold{
-        text-decoration: underline; 
-        display: block;
+        text-decoration: underline;
         margin-bottom:5px;
 	    padding-left : 10px;
       }
+        div.selector{
+            font-weight: bold;
+            border-bottom: 2px solid black;
+        }
+        div.selector:last-child{
+            border:none;
+        }
+
+        div.selector span.under_selector{
+            color: white;
+            margin-bottom:10px;
+            width: 250px;
+            display:inline-block;
+            padding:10px;
+        }
+
+      div.selector span.categoryTitle{
+          display:block;
+      }
+
+      div.selector span.under_selector a{
+          float: right;
+      }
+
+        a.overlaySize, a.overlaySize:link, a.overlaySize:visited {
+            text-decoration: none !important;
+            color:white;
+        }
+
+        div.selector div#change_icons_select {
+            display: block;
+        }
       
     </style>
+      <script type="text/javascript" src="jquery-2.1.4.min.js"></script>
+      <link rel="stylesheet" href="/fancybox/source/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+      <script type="text/javascript" src="/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
       <script type="text/javascript" src="jscolor.js"></script>
+
     <script src="popup.js"></script>
   </head>
   <body>
       <div id="popup">
         <span style="height: 18px; width: 18px" id="close_btn"></span>
-        <div id="change_themes">
-          Change themes
+          <div id="previewGold" style="display:none"><img src="/images/finalGoldThemeResized.png" /></div>
+          <div id="previewRed" style="display:none"><img src="/images/finalRedThemeResized.png" /></div>
+          <div id="previewPurple" style="display:none"><img src="/images/finalPurpleThemeResized.png" /></div>
+          <div id="previewGreen" style="display:none"><img src="/images/finalGreenThemeResized.png" /></div>
+        <div class="selector" id="change_themes">
+            <span class="categoryTitle">THEME CHANGER</span>
           <div id="change_themes_select" style="display: none">
-            <span class="green">Green book</span>
-            <span class="red">Red book</span>
-            <span class="purple">Purple book</span>
-            <span class="gold">Goldie book</span>
+            <span class="under_selector" style="background: green"><span class="green">Green book</span> <a style="text-decoration:none" href="#previewGreen" class="overlaySize fancybox">preview</a></span>
+            <span class="under_selector" style="background: red"><span class="red">Red book </span><a href="#previewRed" class="overlaySize fancybox">preview</a></span>
+            <span class="under_selector" style="background: purple"><span class="purple">Purple book </span><a href="#previewPurple" class="overlaySize fancybox">preview</a></span>
+            <span class="under_selector" style="background: goldenrod"><span class="gold" >Goldie book </span> <a href="#previewGold" id="overlayGoldie" class="overlaySize fancybox">preview</a></span>
           </div>
         </div>
-        <div id="change_navbar">
-          Change navigation bar
+        <div class="selector" id="change_navbar">
+          <span class="categoryTitle">NAVIGATION BAR CHANGER</span>
           <div id="change_navbar_select" style="display: none">
             <input id="navBarPicker" class="color" value="66ff00"/>
               <span class="niceButton" >ok</span>
           </div>
         </div>
-        <div id="change_bgcol">
-          Change background-color
+        <div class="selector" id="change_bgcol">
+          <span class="categoryTitle">BACKGROUND COLOR CHANGER</span>
           <div id="change_bgcol_select" style="display: none">
               <input id="bgPicker" class="color" value="66ff00"/>
               <span class="niceButton" >ok</span>
           </div>
         </div>
-        <div id="change_icons">
-          Change icons
+        <div class="selector" id="change_icons">
+          <span class="categoryTitle">ICONS CHANGER</span>
           <div id="change_icons_select" style="display: none">
             <span class="green">Green forest Icons</span>
             <span class="red">Red blood Icons</span>

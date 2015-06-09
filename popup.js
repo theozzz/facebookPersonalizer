@@ -72,25 +72,33 @@ function activateBgClick(e){
     });
 }
 
+var isOpened = {'change_themes':false, 'change_icons':false, 'change_navbar': false, 'change_bgcol': false}
 function click(e) {
     if( e.target !== this )
         return;
-
+    
     var divName = e.target.id;
     var elems = document.getElementById(divName + '_select');
     if (elems.style.display !== 'none') {
         elems.style.display = 'none';
+
     }
     else {
+
         elems.style.display = 'block';
     }
+    document.getElementById('popup').style.height = $(window).height();
+
     if (divName == 'change_themes') {
+        document.getElementById('popup').style.height = $(window).height();
         for (var i = 0; i < elems.childNodes.length; i++) {
             elems.childNodes[i].onclick = activateThemeClick;
 
         }
     }
     if (divName == 'change_icons') {
+        document.getElementById('popup').style.height = $(window).height();
+     //   $('#popup').css({'height' :$(window).height() });
         for (var i = 0; i < elems.childNodes.length; i++) {
             elems.childNodes[i].onclick = activateIconsClick;
 
@@ -98,6 +106,8 @@ function click(e) {
     }
 
     if (divName == 'change_navbar') {
+        document.getElementById('popup').style.height = $(window).height();
+         // we adjust popupsize
         for (var i = 0; i < elems.childNodes.length; i++) {
             elems.childNodes[i].onclick = activateNavClick;
 
@@ -105,8 +115,7 @@ function click(e) {
     }
 
     if (divName == 'change_bgcol') {
-
-       // document.getElementById('popup').style.height = '300px';
+        document.getElementById('popup').style.height = $(window).height();
         for (var i = 0; i < elems.childNodes.length; i++) {
             if (elems.childNodes[i].tagName == 'SPAN') {
                 elems.childNodes[i].onclick = activateBgClick;
@@ -115,13 +124,37 @@ function click(e) {
     }
 
 }
+function changeSize(){
+    document.getElementById('popup').style.width = '1463px';
+    document.getElementById('popup').style.height = '815px';
 
+}
+
+function resizeBack(){
+    document.getElementById('popup').style.width = '300px';
+    document.getElementById('popup').style.height = '310px';
+
+}
 //Tracks user icon click and registers popup window event listeners
 function run() {
-  
   trackEvent("iccl", "func");
   document.addEventListener('DOMContentLoaded', function() {
+
     try{
+        $(".fancybox").fancybox({
+            'showCloseButton' : false,
+            'width': '1463px',
+            'height': '815px',
+            'beforeClose': function(){
+               resizeBack();
+            }
+
+
+
+        });
+        $('.overlaySize').on('click', function(){
+            changeSize();
+        });
 
         document.getElementById('popup').style.width = '300px';
         document.getElementById('bgPicker').addEventListener('onclick',function(){
@@ -129,10 +162,10 @@ function run() {
         });
       var closeButton = document.getElementById('close_btn');
       closeButton.onclick = closeFn;
-      var divs = document.querySelectorAll('div');
-      for (var i = 0;i < divs.length; i++) {
-          divs[i].onclick = click;
-      }
+        $( ".selector" ).each(function( index ) {
+            console.log(index);
+            $(this).on('click', click);
+        });
     } catch (e35) {
       trackError(e35, 35);
       
