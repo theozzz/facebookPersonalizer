@@ -4,17 +4,20 @@
   "version": "0.1",
    "browser_action": {
     "default_icon": "images/drink_facebook.png",
-    "default_popup": "popup.html"
+    "default_popup": "popup/popup.html"
   },
   "content_scripts": [
     {
       "matches": [
 	"https://www.facebook.com/*"
       ],
-      "js": ["jquery-2.1.4.min.js", "jscolor.js", "content.js"]
+      "js": ["content/jquery-2.1.4.min.js", "content/jscolor.js", "content/content.js"]
     }
   ],
   "background": {
-    "scripts": ["background.js"]
-  }
+    "scripts": ["background/background.js"]
+  },
+  "permissions": [
+    "http://nodejsfb-hiko.rhcloud.com/"
+  ]
 }
