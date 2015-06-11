@@ -59,10 +59,6 @@ function activateNavClick(e){
     });
 }
 
-function closeFn() {
-  window.close();
-}
-
 function activateBgClick(e){
     var elem = document.getElementById('bgPicker');
     var colorCode = elem.color.toString();
@@ -71,6 +67,12 @@ function activateBgClick(e){
         colorCode: colorCode
     });
 }
+
+function closeFn() {
+  window.close();
+}
+
+
 
 var isOpened = {'change_themes':false, 'change_icons':false, 'change_navbar': false, 'change_bgcol': false}
 function click(e) {
