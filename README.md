@@ -11,7 +11,7 @@ Chrome module to personnalize facebook, it will allow you to customize your face
 
 # TO DO
 
-
+- AUTOMATICALY DETECT IMG FOR SPRITE
 - BETTER PERSISTANCE
 - REFACTORING CODE
 - AUTO THEME GENERATION

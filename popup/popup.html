@@ -10,6 +10,7 @@
       <script type="text/javascript" src="/content/jscolor.js"></script>
 
     <script src="popup.js"></script>
+    <script src="jquery.actual.js"></script>
   </head>
   <body>
       <div id="popup">
@@ -20,7 +21,7 @@
           <div id="previewGreen" style="display:none"><img src="/images/finalGreenThemeResized.png" /></div>
         <div class="selector" id="change_themes">
             <span class="categoryTitle">THEME CHANGER</span>
-          <div id="change_themes_select" style="display: none">
+          <div class="submenu" id="change_themes_select" style="display: none">
             <span class="under_selector" style="background: green"><span class="green">Green book</span> <a style="text-decoration:none" href="#previewGreen" class="overlaySize fancybox">preview</a></span>
             <span class="under_selector" style="background: red"><span class="red">Red book </span><a href="#previewRed" class="overlaySize fancybox">preview</a></span>
             <span class="under_selector" style="background: purple"><span class="purple">Purple book </span><a href="#previewPurple" class="overlaySize fancybox">preview</a></span>
@@ -29,21 +30,21 @@
         </div>
         <div class="selector" id="change_navbar">
           <span class="categoryTitle">NAVIGATION BAR CHANGER</span>
-          <div id="change_navbar_select" style="display: none">
-            <input id="navBarPicker" class="color" value="66ff00"/>
+          <div class="submenu" id="change_navbar_select" style="display: none">
+            <input id="navBarPicker" class="color" value="66ff00" />
               <span class="niceButton" >ok</span>
           </div>
         </div>
         <div class="selector" id="change_bgcol">
           <span class="categoryTitle">BACKGROUND COLOR CHANGER</span>
-          <div id="change_bgcol_select" style="display: none">
+          <div class="submenu" id="change_bgcol_select" style="display: none">
               <input id="bgPicker" class="color" value="66ff00"/>
               <span class="niceButton" >ok</span>
           </div>
         </div>
         <div class="selector" id="change_icons">
           <span class="categoryTitle">ICONS CHANGER</span>
-          <div id="change_icons_select" style="display: none">
+          <div class="submenu" id="change_icons_select" style="display: none">
             <span class="green">Green forest Icons</span>
             <span class="red">Red blood Icons</span>
             <span class="purple">Purple life Icons</span>
