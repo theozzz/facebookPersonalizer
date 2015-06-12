@@ -77,12 +77,12 @@ function changeBgCol(color){
 function changeTheme(color){
     if (color == 'green') {
         $( "*" ).each(function( index ) {
-            if ($(this).css('background-image') == 'url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yq/r/7lRgXhS3Alc.png)'
+            if ($(this).css('background-image') == 'url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/ys/r/y92sOHsDDYv.png)'
                 || $(this).css('background-image') == 'url('+ purpleLifeSprite +')' ||  $(this).css('background-image') == 'url('+ redBloodSprite +')'
                 ||  $(this).css('background-image') == 'url('+ goldSprite +')') {
                 $(this).css({'background-image': 'url(' + greenForestSprite + ')'});
             }
-            if ($(this).css('background-image') == 'url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yK/r/s_xQA9txOOz.png)'
+            if ($(this).css('background-image') == 'url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yY/r/bjXM1WQM67C.png)'
                 || $(this).css('background-image') == 'url('+ purpleLifeSprite2 +')' ||  $(this).css('background-image') == 'url('+ redBloodSprite2 +')'
                 ||  $(this).css('background-image') == 'url('+ goldSprite2 +')') {
                 $(this).css({'background-image': 'url(' + greenForestSprite2 + ')'});
@@ -105,15 +105,17 @@ function changeTheme(color){
     if (color == 'red'){
 
         $( "*" ).each(function( index ) {
-            if ($(this).css('background-image') == 'url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yq/r/7lRgXhS3Alc.png)'
+            if ($(this).css('background-image') == 'url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/ys/r/y92sOHsDDYv.png)'
                 || $(this).css('background-image') == 'url('+ purpleLifeSprite +')' ||  $(this).css('background-image') == 'url('+ greenForestSprite +')'
                 ||  $(this).css('background-image') == 'url('+ goldSprite +')') {
-                $(this).css({'background-image': 'url(' + redBloodSprite + ')'});
+                    console.log('ici');
+                    $(this).css({'background-image': 'url(' + redBloodSprite + ')'});
             }
-            if ($(this).css('background-image') == 'url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yK/r/s_xQA9txOOz.png)'
+            if ($(this).css('background-image') == 'url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yY/r/bjXM1WQM67C.png)'
                 || $(this).css('background-image') == 'url('+ purpleLifeSprite2 +')' ||  $(this).css('background-image') == 'url('+ greenForestSprite2 +')'
                 ||  $(this).css('background-image') == 'url('+ goldSprite2 +')') {
-                $(this).css({'background-image': 'url(' + redBloodSprite2 + ')'});
+
+                    $(this).css({'background-image': 'url(' + redBloodSprite2 + ')'});
             }
 
         });
@@ -133,12 +135,12 @@ function changeTheme(color){
     if (color == 'purple'){
 
         $( "*" ).each(function( index ) {
-            if ($(this).css('background-image') == 'url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yq/r/7lRgXhS3Alc.png)'
+            if ($(this).css('background-image') == 'url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/ys/r/y92sOHsDDYv.png)'
                 || $(this).css('background-image') == 'url('+ goldSprite +')' ||  $(this).css('background-image') == 'url('+ greenForestSprite +')'
                 ||  $(this).css('background-image') == 'url('+ redBloodSprite +')') {
                 $(this).css({'background-image': 'url(' + purpleLifeSprite + ')'});
             }
-            if ($(this).css('background-image') == 'url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yK/r/s_xQA9txOOz.png)'
+            if ($(this).css('background-image') == 'url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yY/r/bjXM1WQM67C.png)'
                 || $(this).css('background-image') == 'url('+ goldSprite2 +')' ||  $(this).css('background-image') == 'url('+ greenForestSprite2 +')'
                 ||  $(this).css('background-image') == 'url('+ redBloodSprite2 +')') {
                 $(this).css({'background-image': 'url(' + purpleLifeSprite2 + ')'});
@@ -161,12 +163,12 @@ function changeTheme(color){
 
         $( "*" ).each(function( index ) {
 
-            if ($(this).css('background-image') == 'url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yq/r/7lRgXhS3Alc.png)'
+            if ($(this).css('background-image') == 'url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/ys/r/y92sOHsDDYv.png)'
                 || $(this).css('background-image') == 'url('+ purpleLifeSprite +')' ||  $(this).css('background-image') == 'url('+ greenForestSprite +')'
                 ||  $(this).css('background-image') == 'url('+ redBloodSprite +')') {
                 $(this).css({'background-image': 'url(' + goldSprite + ')'});
             }
-            if ($(this).css('background-image') == 'url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yK/r/s_xQA9txOOz.png)'
+            if ($(this).css('background-image') == 'url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yY/r/bjXM1WQM67C.png)'
                 || $(this).css('background-image') == 'url('+ purpleLifeSprite2 +')' ||  $(this).css('background-image') == 'url('+ greenForestSprite2 +')'
                 ||  $(this).css('background-image') == 'url('+ redBloodSprite2 +')') {
                 $(this).css({'background-image': 'url(' + goldSprite2 + ')'});
@@ -191,7 +193,7 @@ function changeTheme(color){
 function changeIcons(color){
     if (color === 'green'){
         $( "*" ).each(function( index ) {
-            if ($(this).css('background-image') == 'url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yq/r/7lRgXhS3Alc.png)'
+            if ($(this).css('background-image') == 'url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/ys/r/y92sOHsDDYv.png)'
                 || $(this).css('background-image') == 'url('+ purpleLifeSprite +')' ||  $(this).css('background-image') == 'url('+ redBloodSprite +')'
                 ||  $(this).css('background-image') == 'url('+ goldSprite +')') {
                 $(this).css({'background-image': 'url(' + greenForestSprite + ')'});
@@ -225,7 +227,7 @@ function changeIcons(color){
 
     if (color === 'red'){
         $( "*" ).each(function( index ) {
-            if ($(this).css('background-image') == 'url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yq/r/7lRgXhS3Alc.png)'
+            if ($(this).css('background-image') == 'url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/ys/r/y92sOHsDDYv.png)'
                 || $(this).css('background-image') == 'url('+ purpleLifeSprite +')' ||  $(this).css('background-image') == 'url('+ greenForestSprite +')'
                 ||  $(this).css('background-image') == 'url('+ goldSprite +')') {
                 $(this).css({'background-image': 'url(' + redBloodSprite + ')'});
@@ -243,7 +245,7 @@ function changeIcons(color){
     if(color === 'gold'){
         $( "*" ).each(function( index ) {
 
-            if ($(this).css('background-image') == 'url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yq/r/7lRgXhS3Alc.png)'
+            if ($(this).css('background-image') == 'url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/ys/r/y92sOHsDDYv.png)'
                 || $(this).css('background-image') == 'url('+ purpleLifeSprite +')' ||  $(this).css('background-image') == 'url('+ greenForestSprite +')'
                 ||  $(this).css('background-image') == 'url('+ redBloodSprite +')') {
                 $(this).css({'background-image': 'url(' + goldSprite + ')'});
@@ -290,7 +292,6 @@ chrome.runtime.onMessage.addListener(
         if (request.action === 'CHANGE_NAVBAR') {
             colorCode = '#' + request.colorCode;
             changeNavBar(colorCode);
-            //navigationBar.css({'background' : '#' +request.colorCode}); //navigation bar
         }
 
         if (request.action === 'CHANGE_BGCOL') {
@@ -299,14 +300,5 @@ chrome.runtime.onMessage.addListener(
 
         }
 
-        if( request.action === "COLOR_PAGE" ) {
-
-        navigationBar.css({'background' : '#FFFF99'}); //navigation bar
-        fullTheme.css({'background-color' : '#A0A0A0'}); // main container
-        fontColorNavBar.css({'color' : 'black'}); //color font nav bar
-        headerIco.css({'background-image': 'url(http://img11.hostingpics.net/pics/622712testfb.png)'}); //CHANGE HEADER ICO
-        //$('._5vb_').css({'background-color': 'red'}); //side of  the main container
-        //$('#contentCol').css({'background-color': 'red'}); //middle of the main container
-        }
     }
 );
