@@ -62,6 +62,30 @@ $( document ).ready(function() {
     }
 });
 
+function colorizeMiniBoxMessages(colorBg, colorBorder){
+    $('a._55ln').on('click', function(){
+        setTimeout(function(){
+            $( "*" ).each(function( index ) {
+
+                if ($(this).hasClass('fbNubFlyoutTitlebar')) {
+                    $(this).css({'background': colorBg, 'border': '1px solid ' + colorBorder});
+                }
+            });
+
+        },1);
+    });
+    $('._3v_l').on('click', function(){
+        setTimeout(function(){
+            $( "*" ).each(function( index ) {
+
+                if ($(this).hasClass('fbNubFlyoutTitlebar')) {
+                    $(this).css({'background': colorBg, 'border': '1px solid ' + colorBorder});
+                }
+            });
+
+        },1);
+    });
+}
 function changeNavBar(color){
     navigationBar.css({'background' : color}); //navigation bar
     localStorage['navbar'] = color;
@@ -77,29 +101,7 @@ function changeBgCol(color){
 function changeTheme(color){
 
     if (color == 'green') {
-        $('a._55ln').on('click', function(){
-            setTimeout(function(){
-                $( "*" ).each(function( index ) {
-
-                    if ($(this).hasClass('fbNubFlyoutTitlebar')) {
-                        $(this).css({'background': '#007730', 'border': '1px solid #00B74A'});
-                    }
-                });
-
-            },1);
-
-        });
-        $('._3v_l').on('click', function(){
-            setTimeout(function(){
-                $( "*" ).each(function( index ) {
-
-                    if ($(this).hasClass('fbNubFlyoutTitlebar')) {
-                        $(this).css({'background': '#007730', 'border': '1px solid #00B74A'});
-                    }
-                });
-
-            },1);
-        });
+        colorizeMiniBoxMessages('#007730','#00B74A');
         $( "*" ).each(function( index ) {
             if ($(this).hasClass('fbNubFlyoutTitlebar')) {
                 $(this).css({'background': '#007730', 'border': '1px solid #00B74A'});
@@ -130,29 +132,7 @@ function changeTheme(color){
     }
 
     if (color == 'red'){
-        $('a._55ln').on('click', function(){
-            setTimeout(function(){
-                $( "*" ).each(function( index ) {
-
-                    if ($(this).hasClass('fbNubFlyoutTitlebar')) {
-                        $(this).css({'background': '#D90707', 'border': '1px solid #FF7373'});
-                    }
-                });
-
-            },1);
-
-        });
-        $('._3v_l').on('click', function(){
-            setTimeout(function(){
-                $( "*" ).each(function( index ) {
-
-                    if ($(this).hasClass('fbNubFlyoutTitlebar')) {
-                        $(this).css({'background': '#D90707', 'border': '1px solid #FF7373'});
-                    }
-                });
-
-            },1);
-        });
+        colorizeMiniBoxMessages('#D90707','#FF7373');
         $( "*" ).each(function( index ) {
             if ($(this).hasClass('fbNubFlyoutTitlebar')) {
                 $(this).css({'background': '#D90707', 'border': '1px solid #FF7373'});
@@ -184,29 +164,7 @@ function changeTheme(color){
     }
 
     if (color == 'purple'){
-        $('a._55ln').on('click', function(){
-            setTimeout(function(){
-                $( "*" ).each(function( index ) {
-
-                    if ($(this).hasClass('fbNubFlyoutTitlebar')) {
-                        $(this).css({'background': '#270672', 'border': '1px solid #8D6DD7'});
-                    }
-                });
-
-            },1);
-
-        });
-        $('._3v_l').on('click', function(){
-            setTimeout(function(){
-                $( "*" ).each(function( index ) {
-
-                    if ($(this).hasClass('fbNubFlyoutTitlebar')) {
-                        $(this).css({'background': '#270672', 'border': '1px solid #8D6DD7'});
-                    }
-                });
-
-            },1);
-        });
+        colorizeMiniBoxMessages('#270672', '#8D6DD7');
         $( "*" ).each(function( index ) {
             if ($(this).hasClass('fbNubFlyoutTitlebar')) {
                 $(this).css({'background': '#270672', 'border': '1px solid #8D6DD7'});
@@ -236,30 +194,7 @@ function changeTheme(color){
     }
 
     if (color == 'gold'){
-        $('a._55ln').on('click', function(){
-            setTimeout(function(){
-                $( "*" ).each(function( index ) {
-
-                    if ($(this).hasClass('fbNubFlyoutTitlebar')) {
-                        $(this).css({'background': '#BF8F30', 'border': '1px solid #FFAA00'});
-                    }
-                });
-
-            },1);
-
-        });
-        $('._3v_l').on('click', function(){
-            setTimeout(function(){
-                $( "*" ).each(function( index ) {
-
-                    if ($(this).hasClass('fbNubFlyoutTitlebar')) {
-                        $(this).css({'background': '#BF8F30', 'border': '1px solid #FFAA00'});
-                    }
-                });
-
-            },1);
-        });
-
+        colorizeMiniBoxMessages('#BF8F30', '#FFAA00');
         $( "*" ).each(function( index ) {
 
             if ($(this).hasClass('fbNubFlyoutTitlebar')){
