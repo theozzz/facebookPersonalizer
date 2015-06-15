@@ -55,19 +55,13 @@ function activateNavClick(e){
 
     $('#change_navbar_select').on('click',function(){
         var position=$('#navBarPicker').position();
-        console.log(position);
         var distance = $('#myColorPicker').outerHeight(true) + position.top;
         var heightToSave =  $('#popup').outerHeight(true);
-        console.log('DISTANCE ' + distance);
-        console.log('Height To Save ' + heightToSave);
         if (distance > $('#popup').outerHeight(true)) {
             $('#popup').height(function (index, height) {
                 var newHeight =  distance - height;
-                console.log('HEIGHT ' + height)
-                console.log('NEW HEIGHT ' + newHeight);
                 return (height + newHeight + 13)
             });
-            console.log('POPUP OUTER HEIGHT AFTER ' + $('#popup').outerHeight());
 
         }
 
@@ -123,28 +117,26 @@ function click(e) {
         }
         var elems = document.getElementById(divName + '_select');
         $('.submenu').each(function( index ) {
-            console.log($(this).attr('id') + ' == ' + elems.id);
             if ($(this).attr('id') !== elems.id) {
                 $(this).css({'display':'none'});
             }
             else
             {
                 $(this).css({'display':'block'});
+
             }
         });
 
         if (divName == 'change_themes') {
+            $('#popup').height(310);
             for (var i = 0; i < elems.childNodes.length; i++) {
                 elems.childNodes[i].onclick = activateThemeClick;
 
             }
         }
         if (divName == 'change_icons') {
-            alert($(window).height());
-            alert($('#popup').height());
-            if($(window).height() > $('#popup').height()){
-                console.log('tu');
-            }
+             $('#popup').height(210);
+            console.log('change_icons' + $('#popup').height());
             for (var i = 0; i < elems.childNodes.length; i++) {
                 elems.childNodes[i].onclick = activateIconsClick;
 
@@ -152,6 +144,7 @@ function click(e) {
         }
 
         if (divName == 'change_navbar') {
+            $('#popup').height(179);
             // we adjust popupsize
             for (var i = 0; i < elems.childNodes.length; i++) {
                 elems.childNodes[i].onclick = activateNavClick;
@@ -160,43 +153,28 @@ function click(e) {
         }
 
         if (divName == 'change_bgcol') {
-            alert($('#popup').height());
+            $('#popup').height(179);
             $('#bgPicker').on('click',function(){
                 var position=$('#bgPicker').position();
-                console.log(position);
                 var distance = $('#myColorPicker').outerHeight(true) + position.top;
-                var heightToSave =  $('#popup').outerHeight(true);
-                console.log('DISTANCE ' + distance);
-                console.log('Height To Save ' + heightToSave);
                 if (distance > $('#popup').outerHeight(true)) {
                     $('#popup').height(function (index, height) {
                         var newHeight =  distance - height;
-                        console.log('HEIGHT ' + height)
-                        console.log('NEW HEIGHT ' + newHeight);
                         return (height + newHeight + 13)
                     });
-                    console.log('POPUP OUTER HEIGHT AFTER ' + $('#popup').outerHeight());
 
                 }
             });
             $('#bgPicker').on('blur',function(){
                 var position=$('#bgPicker').position();
-                console.log(position);
                 var distance = $('#myColorPicker').outerHeight(true) + position.top;
-                var heightToSave =  $('#popup').outerHeight(true);
-                console.log('DISTANCE ' + distance);
-                console.log('Height To Save ' + heightToSave);
                 if (distance < $('#popup').outerHeight(true)) {
                     $('#popup').height(function (index, height) {
                         var newHeight =  height - distance;
-                        console.log('HEIGHT ' + height)
-                        console.log('NEW HEIGHT ' + newHeight);
                         return (height - newHeight - 47)
                     });
-                    console.log('POPUP OUTER HEIGHT AFTER ' + $('#popup').outerHeight());
 
                 }
-                alert($('#popup').height());
             });
             
             for (var i = 0; i < elems.childNodes.length; i++) {
@@ -239,7 +217,6 @@ function run() {
         var closeButton = document.getElementById('close_btn');
         closeButton.onclick = closeFn;
         $( ".selector" ).each(function( index ) {
-            console.log(index);
             $(this).on('click', click);
         });
     } catch (e35) {

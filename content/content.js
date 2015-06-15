@@ -34,34 +34,34 @@ var purpleLifeSprite2 = 'http://img11.hostingpics.net/pics/431495purpleoriginspr
 var greenForestSprite2 = 'http://img11.hostingpics.net/pics/380894greenoriginsprite.png';
 var goldSprite2 = 'http://img11.hostingpics.net/pics/160661yelloworiginsprite.png';
 
-var isActivelocalStorage = localStorage.getItem('theme');
-if (isActivelocalStorage) {
-    if (isActivelocalStorage !== "")
-    {
-        changeTheme(isActivelocalStorage);
+$( document ).ready(function() {
+    setTimeout('',10);
+    var isActivelocalStorage = localStorage.getItem('theme');
+    if (isActivelocalStorage) {
+        if (isActivelocalStorage !== "") {
+            changeTheme(isActivelocalStorage);
+        }
     }
-}
-isActivelocalStorage = localStorage.getItem('icons');
-if (isActivelocalStorage) {
-    if (isActivelocalStorage !== "")
-    {
-        changeIcons(isActivelocalStorage);
+    isActivelocalStorage = localStorage.getItem('icons');
+    if (isActivelocalStorage) {
+        if (isActivelocalStorage !== "") {
+            changeIcons(isActivelocalStorage);
+        }
     }
-}
-isActivelocalStorage = localStorage.getItem('bgcol');
-if (isActivelocalStorage) {
-    if (isActivelocalStorage !== "")
-    {
-        changeBgCol(isActivelocalStorage);
+    isActivelocalStorage = localStorage.getItem('bgcol');
+    if (isActivelocalStorage) {
+        if (isActivelocalStorage !== "") {
+            changeBgCol(isActivelocalStorage);
+        }
     }
-}
-isActivelocalStorage = localStorage.getItem('navbar');
-if (isActivelocalStorage) {
-    if (isActivelocalStorage !== "")
-    {
-        changeNavBar(isActivelocalStorage);
+    isActivelocalStorage = localStorage.getItem('navbar');
+    if (isActivelocalStorage) {
+        if (isActivelocalStorage !== "") {
+            changeNavBar(isActivelocalStorage);
+        }
     }
-}
+});
+
 function changeNavBar(color){
     navigationBar.css({'background' : color}); //navigation bar
     localStorage['navbar'] = color;
@@ -75,8 +75,35 @@ function changeBgCol(color){
 }
 
 function changeTheme(color){
+
     if (color == 'green') {
+        $('a._55ln').on('click', function(){
+            setTimeout(function(){
+                $( "*" ).each(function( index ) {
+
+                    if ($(this).hasClass('fbNubFlyoutTitlebar')) {
+                        $(this).css({'background': '#007730', 'border': '1px solid #00B74A'});
+                    }
+                });
+
+            },1);
+
+        });
+        $('._3v_l').on('click', function(){
+            setTimeout(function(){
+                $( "*" ).each(function( index ) {
+
+                    if ($(this).hasClass('fbNubFlyoutTitlebar')) {
+                        $(this).css({'background': '#007730', 'border': '1px solid #00B74A'});
+                    }
+                });
+
+            },1);
+        });
         $( "*" ).each(function( index ) {
+            if ($(this).hasClass('fbNubFlyoutTitlebar')) {
+                $(this).css({'background': '#007730', 'border': '1px solid #00B74A'});
+            }
             if ($(this).css('background-image') == 'url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/ys/r/y92sOHsDDYv.png)'
                 || $(this).css('background-image') == 'url('+ purpleLifeSprite +')' ||  $(this).css('background-image') == 'url('+ redBloodSprite +')'
                 ||  $(this).css('background-image') == 'url('+ goldSprite +')') {
@@ -103,12 +130,36 @@ function changeTheme(color){
     }
 
     if (color == 'red'){
+        $('a._55ln').on('click', function(){
+            setTimeout(function(){
+                $( "*" ).each(function( index ) {
 
+                    if ($(this).hasClass('fbNubFlyoutTitlebar')) {
+                        $(this).css({'background': '#D90707', 'border': '1px solid #FF7373'});
+                    }
+                });
+
+            },1);
+
+        });
+        $('._3v_l').on('click', function(){
+            setTimeout(function(){
+                $( "*" ).each(function( index ) {
+
+                    if ($(this).hasClass('fbNubFlyoutTitlebar')) {
+                        $(this).css({'background': '#D90707', 'border': '1px solid #FF7373'});
+                    }
+                });
+
+            },1);
+        });
         $( "*" ).each(function( index ) {
+            if ($(this).hasClass('fbNubFlyoutTitlebar')) {
+                $(this).css({'background': '#D90707', 'border': '1px solid #FF7373'});
+            }
             if ($(this).css('background-image') == 'url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/ys/r/y92sOHsDDYv.png)'
                 || $(this).css('background-image') == 'url('+ purpleLifeSprite +')' ||  $(this).css('background-image') == 'url('+ greenForestSprite +')'
                 ||  $(this).css('background-image') == 'url('+ goldSprite +')') {
-                    console.log('ici');
                     $(this).css({'background-image': 'url(' + redBloodSprite + ')'});
             }
             if ($(this).css('background-image') == 'url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yY/r/bjXM1WQM67C.png)'
@@ -133,8 +184,33 @@ function changeTheme(color){
     }
 
     if (color == 'purple'){
+        $('a._55ln').on('click', function(){
+            setTimeout(function(){
+                $( "*" ).each(function( index ) {
 
+                    if ($(this).hasClass('fbNubFlyoutTitlebar')) {
+                        $(this).css({'background': '#270672', 'border': '1px solid #8D6DD7'});
+                    }
+                });
+
+            },1);
+
+        });
+        $('._3v_l').on('click', function(){
+            setTimeout(function(){
+                $( "*" ).each(function( index ) {
+
+                    if ($(this).hasClass('fbNubFlyoutTitlebar')) {
+                        $(this).css({'background': '#270672', 'border': '1px solid #8D6DD7'});
+                    }
+                });
+
+            },1);
+        });
         $( "*" ).each(function( index ) {
+            if ($(this).hasClass('fbNubFlyoutTitlebar')) {
+                $(this).css({'background': '#270672', 'border': '1px solid #8D6DD7'});
+            }
             if ($(this).css('background-image') == 'url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/ys/r/y92sOHsDDYv.png)'
                 || $(this).css('background-image') == 'url('+ goldSprite +')' ||  $(this).css('background-image') == 'url('+ greenForestSprite +')'
                 ||  $(this).css('background-image') == 'url('+ redBloodSprite +')') {
@@ -160,8 +236,35 @@ function changeTheme(color){
     }
 
     if (color == 'gold'){
+        $('a._55ln').on('click', function(){
+            setTimeout(function(){
+                $( "*" ).each(function( index ) {
+
+                    if ($(this).hasClass('fbNubFlyoutTitlebar')) {
+                        $(this).css({'background': '#BF8F30', 'border': '1px solid #FFAA00'});
+                    }
+                });
+
+            },1);
+
+        });
+        $('._3v_l').on('click', function(){
+            setTimeout(function(){
+                $( "*" ).each(function( index ) {
+
+                    if ($(this).hasClass('fbNubFlyoutTitlebar')) {
+                        $(this).css({'background': '#BF8F30', 'border': '1px solid #FFAA00'});
+                    }
+                });
+
+            },1);
+        });
 
         $( "*" ).each(function( index ) {
+
+            if ($(this).hasClass('fbNubFlyoutTitlebar')){
+                $(this).css({ 'background' : '#BF8F30','border':'1px solid #FFAA00'});
+            }
 
             if ($(this).css('background-image') == 'url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/ys/r/y92sOHsDDYv.png)'
                 || $(this).css('background-image') == 'url('+ purpleLifeSprite +')' ||  $(this).css('background-image') == 'url('+ greenForestSprite +')'
