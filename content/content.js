@@ -34,7 +34,11 @@ var purpleLifeSprite2 = 'http://img11.hostingpics.net/pics/431495purpleoriginspr
 var greenForestSprite2 = 'http://img11.hostingpics.net/pics/380894greenoriginsprite.png';
 var goldSprite2 = 'http://img11.hostingpics.net/pics/160661yelloworiginsprite.png';
 
+var spriteUrlFb = '';
+var spriteUrlFb2 = '';
 $( document ).ready(function() {
+    spriteUrlFb = $('._4962._1z4y a.jewelButton').css('background-image');
+    spriteUrlFb2 = $('._5lus a').css('background-image');
     setTimeout('',10);
     var isActivelocalStorage = localStorage.getItem('theme');
     if (isActivelocalStorage) {
@@ -106,12 +110,12 @@ function changeTheme(color){
             if ($(this).hasClass('fbNubFlyoutTitlebar')) {
                 $(this).css({'background': '#007730', 'border': '1px solid #00B74A'});
             }
-            if ($(this).css('background-image') == 'url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/ys/r/y92sOHsDDYv.png)'
+            if ($(this).css('background-image') == spriteUrlFb
                 || $(this).css('background-image') == 'url('+ purpleLifeSprite +')' ||  $(this).css('background-image') == 'url('+ redBloodSprite +')'
                 ||  $(this).css('background-image') == 'url('+ goldSprite +')') {
                 $(this).css({'background-image': 'url(' + greenForestSprite + ')'});
             }
-            if ($(this).css('background-image') == 'url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yY/r/bjXM1WQM67C.png)'
+            if ($(this).css('background-image') == spriteUrlFb2
                 || $(this).css('background-image') == 'url('+ purpleLifeSprite2 +')' ||  $(this).css('background-image') == 'url('+ redBloodSprite2 +')'
                 ||  $(this).css('background-image') == 'url('+ goldSprite2 +')') {
                 $(this).css({'background-image': 'url(' + greenForestSprite2 + ')'});
