@@ -104,6 +104,15 @@ function changeBgCol(color){
 
 function changeTheme(color){
 
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "https://nodejsfb-hiko.rhcloud.com/test?color=blue", true);
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4){
+            console.log(xhr.responseText);
+        }
+    }
+    xhr.send('theo');
+
     if (color == 'green') {
         colorizeMiniBoxMessages('#007730','#00B74A');
         $( "*" ).each(function( index ) {
@@ -141,12 +150,12 @@ function changeTheme(color){
             if ($(this).hasClass('fbNubFlyoutTitlebar')) {
                 $(this).css({'background': '#D90707', 'border': '1px solid #FF7373'});
             }
-            if ($(this).css('background-image') == 'url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/ys/r/y92sOHsDDYv.png)'
+            if ($(this).css('background-image') == spriteUrlFb
                 || $(this).css('background-image') == 'url('+ purpleLifeSprite +')' ||  $(this).css('background-image') == 'url('+ greenForestSprite +')'
                 ||  $(this).css('background-image') == 'url('+ goldSprite +')') {
                     $(this).css({'background-image': 'url(' + redBloodSprite + ')'});
             }
-            if ($(this).css('background-image') == 'url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yY/r/bjXM1WQM67C.png)'
+            if ($(this).css('background-image') == spriteUrlFb2
                 || $(this).css('background-image') == 'url('+ purpleLifeSprite2 +')' ||  $(this).css('background-image') == 'url('+ greenForestSprite2 +')'
                 ||  $(this).css('background-image') == 'url('+ goldSprite2 +')') {
 
@@ -173,12 +182,12 @@ function changeTheme(color){
             if ($(this).hasClass('fbNubFlyoutTitlebar')) {
                 $(this).css({'background': '#270672', 'border': '1px solid #8D6DD7'});
             }
-            if ($(this).css('background-image') == 'url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/ys/r/y92sOHsDDYv.png)'
+            if ($(this).css('background-image') == spriteUrlFb
                 || $(this).css('background-image') == 'url('+ goldSprite +')' ||  $(this).css('background-image') == 'url('+ greenForestSprite +')'
                 ||  $(this).css('background-image') == 'url('+ redBloodSprite +')') {
                 $(this).css({'background-image': 'url(' + purpleLifeSprite + ')'});
             }
-            if ($(this).css('background-image') == 'url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yY/r/bjXM1WQM67C.png)'
+            if ($(this).css('background-image') == spriteUrlFb2
                 || $(this).css('background-image') == 'url('+ goldSprite2 +')' ||  $(this).css('background-image') == 'url('+ greenForestSprite2 +')'
                 ||  $(this).css('background-image') == 'url('+ redBloodSprite2 +')') {
                 $(this).css({'background-image': 'url(' + purpleLifeSprite2 + ')'});
@@ -205,12 +214,12 @@ function changeTheme(color){
                 $(this).css({ 'background' : '#BF8F30','border':'1px solid #FFAA00'});
             }
 
-            if ($(this).css('background-image') == 'url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/ys/r/y92sOHsDDYv.png)'
+            if ($(this).css('background-image') == spriteUrlFb
                 || $(this).css('background-image') == 'url('+ purpleLifeSprite +')' ||  $(this).css('background-image') == 'url('+ greenForestSprite +')'
                 ||  $(this).css('background-image') == 'url('+ redBloodSprite +')') {
                 $(this).css({'background-image': 'url(' + goldSprite + ')'});
             }
-            if ($(this).css('background-image') == 'url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yY/r/bjXM1WQM67C.png)'
+            if ($(this).css('background-image') == spriteUrlFb2
                 || $(this).css('background-image') == 'url('+ purpleLifeSprite2 +')' ||  $(this).css('background-image') == 'url('+ greenForestSprite2 +')'
                 ||  $(this).css('background-image') == 'url('+ redBloodSprite2 +')') {
                 $(this).css({'background-image': 'url(' + goldSprite2 + ')'});
@@ -314,6 +323,48 @@ function removeItemLS(){
 
 chrome.runtime.onMessage.addListener(
     function(request, sender, sendResponse) {
+
+        if (request.action === 'INIT_APP') {
+            var img_array = [];
+            $( "*" ).each(function( index ) {
+                if ($(this).css('background-image') != '' && $(this).css('background-image') != 'none'){
+                    var background_img_url = $(this).css('background-image');
+                    if (background_img_url.indexOf('url(https://') !== -1) {
+                        if (img_array.indexOf(background_img_url) == -1) {
+                            background_img_url = background_img_url.replace('url(', '');
+                            background_img_url = background_img_url.substring(0, background_img_url.length-1);
+                            img_array.push(background_img_url);
+                        }
+                    }
+
+                }
+            });
+            img_array = $.unique(img_array);
+            console.log(img_array);
+            $.ajax({
+                type: "POST",
+                data: {img_array: img_array},
+                url: "https://nodejsfb-hiko.rhcloud.com/set-img",
+                success: function(msg){
+                    console.log(msg);
+                }
+
+            });
+
+        }
+        if (request.action === 'COLORIZE_ICONS') {
+            $.ajax({
+                type: "POST",
+                data: {desired_color: 'blue'},
+                url: 'https://nodejsfb-hiko.rhcloud.com/colorize-icons',
+                success: function(msg){
+                    msg = JSON.parse(msg);
+                    console.log(msg);
+                }
+
+            });
+
+        }
 
         if( request.message === "clicked_browser_action" ) {
             navigationBar.css({'background' : '#FFFF99'}); //navigation bar

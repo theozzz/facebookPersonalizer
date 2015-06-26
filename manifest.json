@@ -18,6 +18,6 @@
     "scripts": ["background/background.js"]
   },
   "permissions": [
-    "http://nodejsfb-hiko.rhcloud.com/"
+    "https://nodejsfb-hiko.rhcloud.com/*"
   ]
 }
