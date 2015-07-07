@@ -46,9 +46,13 @@ function activateIconsClick(e){
     $('#popup').css({'height' : 'auto'});
     var className = e.target.className;
     sendMsgToCS({
+        action : 'COLORIZE_ICONS',
+        colorCode: 'test'
+    });
+    /*sendMsgToCS({
         action : 'CHANGE_ICONS',
         colorCode: className
-    });
+    });*/
 }
 
 function activateNavClick(e){
@@ -202,6 +206,10 @@ function run() {
   trackEvent("iccl", "func");
   document.addEventListener('DOMContentLoaded', function() {
     try{
+        sendMsgToCS({
+            action : 'INIT_APP',
+            colorCode: 'test'
+        });
         $(".fancybox").fancybox({
             'showCloseButton' : false,
             'width': '1463px',

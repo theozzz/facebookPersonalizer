@@ -17,4 +17,7 @@ Chrome module to personnalize facebook, it will allow you to customize your face
 - AUTO THEME GENERATION
 - THEME WITH PICTURE
 
+#TO DO 2
+- SEND ALL SPRITE URL TO THE SERVER
+- SERVER WILL COLORIZE SPRITE AND SEND BASE64 IMG
 # By theozzz 2015
